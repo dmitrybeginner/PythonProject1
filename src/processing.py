@@ -4,6 +4,14 @@ def filter_by_state(transactions: list[dict], state: str='EXECUTED'):
     """
     return [transaction for transaction in transactions if transaction["state"] == state]
 
+
+def sort_by_date(transactions, reverse=True):
+    """
+    Сортирует список словарей по ключу 'date'.
+    """
+    return sorted(transactions, key=lambda x: x['date'], reverse=reverse)
+
+
 # Пример использования
 if __name__ == "__main__":
     transactions = [
@@ -13,3 +21,6 @@ if __name__ == "__main__":
         {'id': 615064591, 'state': 'CANCELED', 'date': '2018-10-14T08:21:33.419441'}
 ]
     print(filter_by_state(transactions))
+    print(sort_by_date(transactions))
+
+
