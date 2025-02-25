@@ -10,5 +10,10 @@ git clone https://github.com/dmitrybeginner/PythonProject1.git
 ```
 2. Установите зависимости:
 ```
-
+pip install -r requirements.txt
+```
+## Тесты
+1. Для запуска тестов используйте команду:
+```
+pytest
 ```
