@@ -1,10 +1,13 @@
-def filter_by_state(transactions_list: list[dict[str, str | int]], state: str = 'EXECUTED') -> list[dict[str, str | int]]:
+def filter_by_state(
+    transactions_list: list[dict[str, str | int]],
+    state: str = 'EXECUTED'
+) -> list[dict[str, str | int]]:
     """
     Фильтрует список словарей по значению ключа 'state'.
 
-    :param transactions_list: Список словарей с транзакциями.
+    :param transactions_list: Список транзакций.
     :param state: Значение ключа 'state' для фильтрации (по умолчанию 'EXECUTED').
-    :return: Отфильтрованный список словарей.
+    :return: Отфильтрованный список транзакций.
     """
     return [transaction for transaction in transactions_list if transaction.get('state') == state]
 
