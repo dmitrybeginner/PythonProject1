@@ -1,4 +1,4 @@
-from typing import Callable, Any, Optional
+from typing import Any, Callable, Optional
 
 
 def filter_by_currency(transactions, currency_code):

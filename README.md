@@ -46,3 +46,20 @@ def my_function(x, y):
     return x + y
 
 my_function(1, 2)
+```
+### Модуль `generators`
+
+#### Функция `filter_by_currency`
+
+- **Описание**: Функция `filter_by_currency` принимает список словарей на вход и возвращает итератор, фильтрующий транзакции по валюте.
+- **Пример использования**:
+  ```python
+  transactions = [
+      {'amount': 100, 'currency': 'USD'},
+      {'amount': 200, 'currency': 'EUR'},
+      {'amount': 150, 'currency': 'USD'}
+  ]
+  filtered_transactions = filter_by_currency(transactions, 'USD')
+  for transaction in filtered_transactions:
+  ```
+  

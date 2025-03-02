@@ -1,5 +1,5 @@
-from src.masks import get_mask_account, get_mask_card_number
 from src.decorators import log
+from src.masks import get_mask_account, get_mask_card_number
 
 
 def mask_account_card(input_string: str) -> str:
@@ -25,10 +25,6 @@ def mask_account_card(input_string: str) -> str:
 def my_function(x: int, y: int) -> int:
     """
     Пример функции, которая складывает два числа.
-
-    :param x: Первое число.
-    :param y: Второе число.
-    :return: Сумма чисел.
     """
     return x + y
 
@@ -37,10 +33,6 @@ def my_function(x: int, y: int) -> int:
 def my_function_with_error(x: int, y: int) -> float:
     """
     Пример функции, которая вызывает ошибку.
-
-    :param x: Первое число.
-    :param y: Второе число.
-    :return: Результат деления чисел.
     """
     return x / y
 
@@ -48,11 +40,6 @@ def my_function_with_error(x: int, y: int) -> float:
 def get_date(date_string: str) -> str:
     """
     Преобразует дату из формата ISO в формат DD.MM.YYYY.
-
-    :param date_string: Дата в формате ISO.
-    :return: Дата в формате DD.MM.YYYY.
-    :raises ValueError: Если входная строка пустая или имеет некорректный формат.
-    :raises IndexError: Если входная строка слишком короткая для извлечения даты.
     """
     if not date_string:
         raise ValueError("Пустая строка")
