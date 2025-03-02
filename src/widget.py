@@ -1,4 +1,5 @@
 from src.masks import get_mask_account, get_mask_card_number
+from src.decorators import log
 
 
 def mask_account_card(input_string: str) -> str:
@@ -20,5 +21,55 @@ def mask_account_card(input_string: str) -> str:
         return f"{account_type} {get_mask_account(int(account_number))}"
 
 
+@log(filename="mylog.txt")
+def my_function(x: int, y: int) -> int:
+    """
+    Пример функции, которая складывает два числа.
+
+    :param x: Первое число.
+    :param y: Второе число.
+    :return: Сумма чисел.
+    """
+    return x + y
+
+
+@log()
+def my_function_with_error(x: int, y: int) -> float:
+    """
+    Пример функции, которая вызывает ошибку.
+
+    :param x: Первое число.
+    :param y: Второе число.
+    :return: Результат деления чисел.
+    """
+    return x / y
+
+
 def get_date(date_string: str) -> str:
-    return f"{date_string[8:10]}.{date_string[5:7]}.{date_string[0:4]}"
+    """
+    Преобразует дату из формата ISO в формат DD.MM.YYYY.
+
+    :param date_string: Дата в формате ISO.
+    :return: Дата в формате DD.MM.YYYY.
+    :raises ValueError: Если входная строка пустая или имеет некорректный формат.
+    :raises IndexError: Если входная строка слишком короткая для извлечения даты.
+    """
+    if not date_string:
+        raise ValueError("Пустая строка")
+
+    # Проверяем, что строка имеет достаточную длину
+    if len(date_string) < 10:
+        raise IndexError("Строка слишком короткая")
+
+    # Извлекаем год, месяц и день
+    year = date_string[:4]
+    month = date_string[5:7]
+    day = date_string[8:10]
+
+    # Проверяем, что месяц и день корректны
+    if not (1 <= int(month) <= 12):
+        raise ValueError("Некорректный месяц")
+    if not (1 <= int(day) <= 31):
+        raise ValueError("Некорректный день")
+
+    return f"{day}.{month}.{year}"
